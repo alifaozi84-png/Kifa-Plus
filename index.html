@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIFA Demo</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; }
+  header { background: #6a1b9a; color: white; padding: 15px; text-align:center; font-size: 20px; }
+  nav { display:flex; justify-content: space-around; background:#9c27b0; padding:10px; }
+  nav button { background:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; }
+  section { padding:15px; display:none; }
+  .active { display:block; }
+  .item { background:white; padding:10px; margin:10px 0; border-radius:5px; }
+  .item img { width:100%; max-width:200px; display:block; margin-bottom:5px; }
+  .buy-btn { background:#6a1b9a; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer; }
+  .contact { display:none; color:green; margin-top:5px; }
+</style>
+</head>
+<body>
+
+<header>KIFA Demo App</header>
+
+<nav>
+  <button onclick="showSection('producers')">الأسر المنتجة</button>
+  <button onclick="showSection('furniture')">تبرع أثاث</button>
+  <button onclick="showSection('restaurants')">المطاعم</button>
+  <button onclick="showSection('beneficiaries')">المستفيد</button>
+</nav>
+
+<!-- الأسر المنتجة -->
+<section id="producers">
+  <div class="item">
+    <h3>Handmade Cookies</h3>
+    <img src="https://via.placeholder.com/200" alt="Cookies">
+    <p>Organic ingredients, freshly baked.</p>
+    <p>Price: 5 Pi</p>
+    <button class="buy-btn" onclick="alert('محاكاة شراء المنتج')">شراء</button>
+  </div>
+  <div class="item">
+    <h3>Knitted Scarf</h3>
+    <img src="https://via.placeholder.com/200" alt="Scarf">
+    <p>Warm and handmade scarf.</p>
+    <p>Price: 3 Pi</p>
+    <button class="buy-btn" onclick="alert('محاكاة شراء المنتج')">شراء</button>
+  </div>
+</section>
+
+<!-- تبرع أثاث مستعمل -->
+<section id="furniture">
+  <div class="item">
+    <h3>Wooden Chair</h3>
+    <img src="https://via.placeholder.com/200" alt="Chair">
+    <p>Good condition, pickup after payment.</p>
+    <p>Price: 0.5 Pi</p>
+    <button class="buy-btn" onclick="showContact(this)">اظهار رقم التواصل بعد الدفع</button>
+    <p class="contact">رقم التواصل: 0501234567</p>
+  </div>
+  <div class="item">
+    <h3>Coffee Table</h3>
+    <img src="https://via.placeholder.com/200" alt="Table">
+    <p>Pre-owned, must pickup after payment.</p>
+    <p>Price: 0.5 Pi</p>
+    <button class="buy-btn" onclick="showContact(this)">اظهار رقم التواصل بعد الدفع</button>
+    <p class="contact">رقم التواصل: 0509876543</p>
+  </div>
+</section>
+
+<!-- المطاعم -->
+<section id="restaurants">
+  <div class="item">
+    <h3>Pizza Palace</h3>
+    <img src="https://via.placeholder.com/200" alt="Pizza">
+    <p>Delicious pizzas for delivery or pickup.</p>
+  </div>
+  <div class="item">
+    <h3>Healthy Bites</h3>
+    <img src="https://via.placeholder.com/200" alt="Salad">
+    <p>Organic salads and sandwiches.</p>
+  </div>
+</section>
+
+<!-- المستفيد -->
+<section id="beneficiaries">
+  <div class="item">
+    <h3>Available Products</h3>
+    <p>يمكن للمستفيد تصفح جميع منتجات الأسر المنتجة والمطاعم.</p>
+    <p>سيظهر رقم التواصل للأثاث بعد الضغط على زر الدفع.</p>
+  </div>
+</section>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function showContact(button){
+  // محاكاة الدفع قبل إظهار الرقم
+  let confirmPayment = confirm("قم بدفع 0.5 Pi لإظهار رقم التواصل؟");
+  if(confirmPayment){
+    let contact = button.nextElementSibling;
+    contact.style.display = 'block';
+    button.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; }
+header { background: #6a1b9a; color: white; padding: 15px; text-align:center; font-size: 20px; }
+nav { display:flex; justify-content: space-around; background:#9c27b0; padding:10px; }
+nav button { background:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; }
+.section { display:none; padding:15px; }
+.item { background:white; padding:10px; margin:10px 0; border-radius:5px; }
+.item button { background:#6a1b9a; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer; margin-top:5px; }
